@@ -1,3 +1,12 @@
+# Tutorial links
+
+- https://docs.python.org/3.10/library/socket.html
+
+- https://pythonprogramming.net/client-chatroom-sockets-tutorial-python-3/?completed=/server-chatroom-sockets-tutorial-python-3/
+
+
+
+
 # About
 
 Вы должны взглянуть на пакет systemd . Его можно использовать для управления статусом вашего скрипта. Он может перезапустить скрипт, если он умирает или если узел перезагружается.
