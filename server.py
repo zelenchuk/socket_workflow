@@ -1,10 +1,32 @@
 import socket
 import select
 
+from datetime import datetime
+
+
+# -------------------JSON WORK Start----------------------
+
+# https://towardsdatascience.com/how-to-best-work-with-json-in-python-2c8989ff0390 - work with this aticle
+import json
+
+with open('chat_history.json') as f:
+    chat_history = json.load(f) # error when file is empty
+
+
+    
+
+    print(type(chat_history))
+
+    print(chat_history)
+
+
+
+# ---------------------JSON WORK End----------------------
+
 HEADER_LENGTH = 10
 
 IP = ""
-PORT = 50010
+PORT = 50009
 
 # Create a socket
 # socket.AF_INET - address family, IPv4, some otehr possible are AF_INET6, AF_BLUETOOTH, AF_UNIX
@@ -119,6 +141,17 @@ while True:
             user = clients[notified_socket]
 
             print(f'Received message from {user["data"].decode("utf-8")}: {message["data"].decode("utf-8")}')
+
+            chat_history[datetime.now().strftime("%Y-%m-%d %H:%M:%S")] = [
+                {
+                    'user': user["data"].decode("utf-8"),
+                    'message': message["data"].decode("utf-8"),
+                    
+                }
+            ]
+
+            with open('chat_history.json', 'w') as file:
+                json.dump(chat_history, file, indent = 4, sort_keys = True)
 
             # Iterate over connected clients and broadcast message
             for client_socket in clients:

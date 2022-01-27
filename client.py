@@ -7,7 +7,7 @@ HEADER_LENGTH = 10
 # IP = "165.227.141.154"
 
 IP = "localhost"
-PORT = 50010
+PORT = 50009
 my_username = input("Username: ")
 
 # Create a socket

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chat client</title>
+</head>
+<body>
+
+	<style>
+		
+		* { box-sizing: border-box;}
+		body { margin: 0; background: #eee;}
+		main { width: 1000px;margin: 50px auto;background: #000;border-radius: 20px;}
+		main::after {clear: both; content: ""; display: block;}
+		h1 {color: #fff; text-align: center; margin: 0; padding: 20px 0;}
+		#chat_display {height: 400px; overflow: auto; padding: 20px; background: #fff;}
+		#user_input input {width: 800px; display: block; float: left; padding: 16px 15px; font-size: 20px;}
+		#user_input a {
+			display: block;
+			background:  blue;
+			color: white;
+			text-decoration: none;
+			width: 200px;
+			padding: 20px 0;
+			text-align: center;
+			float: left;
+		}
+
+	</style>
+
+	<main>
+		<h1>Super Chat</h1>
+		<div id="chat_display"></div>
+
+		<div id="user_input">
+			<input type="text" placeholder="Enter your message ...">
+			<a href="#">Send message</a>
+		</div>
+	</main>
+	
+</body>
+</html>
