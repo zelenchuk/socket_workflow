@@ -16,16 +16,8 @@
 		h1 {color: #fff; text-align: center; margin: 0; padding: 20px 0;}
 		#chat_display {height: 400px; overflow: auto; padding: 20px; background: #fff;}
 		#user_input input {width: 800px; display: block; float: left; padding: 16px 15px; font-size: 20px;}
-		#user_input a {
-			display: block;
-			background:  blue;
-			color: white;
-			text-decoration: none;
-			width: 200px;
-			padding: 20px 0;
-			text-align: center;
-			float: left;
-		}
+		#user_input a { display: block; background:  blue; color: white; text-decoration: none; width: 200px;
+			padding: 20px 0; text-align: center; float: left;}
 
 	</style>
 
@@ -35,9 +27,61 @@
 
 		<div id="user_input">
 			<input type="text" placeholder="Enter your message ...">
-			<a href="#">Send message</a>
+			<a id="send_message" href="#">Send message</a>
 		</div>
 	</main>
+
+
+
+	<script type="text/javascript">
+		const sm_btn = document.querySelector('#send_message');
+
+		const chat_display = document.querySelector('#chat_display');
+
+		let messages = [];
+		
+
+		sm_btn.addEventListener('click', (e) => {
+			e.preventDefault();
+
+			//console.log(messages)
+
+			// TODO распаковать messages. 
+
+			let i = 0;
+			let output = '';
+
+			while (i < 10) {
+				output += '<p>' + messages[i] + '</p>';
+
+				console.log(messages[i]);
+
+				i++;
+			}
+
+			chat_display.innerHTML = output;
+
+
+		})
+
+
+		/* https://medium.com/@armando_amador/how-to-make-http-requests-using-fetch-api-and-promises-b0ca7370a444 */
+		document.addEventListener('DOMContentLoaded', () => {
+			const fetchPromise = fetch("http://localhost:8000");
+
+			fetchPromise.then(response => {
+				return response.json();
+			}).then(data => {
+				// console.log(data);
+
+				messages = data;
+
+			});
+		})
+
+
+
+	</script>
 	
 </body>
 </html>
